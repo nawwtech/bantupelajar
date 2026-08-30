@@ -1,30 +1,12 @@
-# BantuPelajar V4
+# BantuPelajar v4
 
-BantuPelajar menggunakan Next.js di Vercel dan Supabase untuk fitur aplikasi/auth. Fitur AI menggunakan Groq melalui Next.js server route `/api/ai`.
+Next.js app dengan AI tutor Groq melalui server-side `/api/ai`.
 
-## Environment Variables
+## Konfigurasi
+API key Groq diletakkan langsung di `lib/config.ts`. Tidak menggunakan `.env`.
 
-Set di Vercel:
-
-- `GROQ_API_KEY` — secret API key dari Groq
-- Supabase variables jika diperlukan oleh environment aplikasi kamu
-
-Jangan commit API key ke GitHub dan jangan gunakan prefix `NEXT_PUBLIC_` untuk `GROQ_API_KEY`.
-
-## AI
-
-Request frontend:
-
-`POST /api/ai`
-
-Body:
-
-```json
-{"message":"Jelaskan hukum Newton 2"}
+```ts
+export const GROQ_API_KEY = "PASTE_GROQ_API_KEY_DI_SINI";
 ```
 
-Response:
-
-```json
-{"answer":"..."}
-```
+Ganti placeholder tersebut sebelum deploy.

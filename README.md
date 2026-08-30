@@ -1,27 +1,30 @@
 # BantuPelajar V4
 
-BantuPelajar memakai Vercel untuk frontend, Supabase untuk Google Auth/database/Edge Functions, dan Groq untuk AI. Tidak memakai `.env` untuk konfigurasi frontend.
+BantuPelajar menggunakan Next.js di Vercel dan Supabase untuk fitur aplikasi/auth. Fitur AI menggunakan Groq melalui Next.js server route `/api/ai`.
 
-## Quick setup
+## Environment Variables
 
-1. Push project ke GitHub.
-2. Import repository ke Vercel dan deploy. Tidak perlu Vercel Environment Variables.
-3. Supabase -> Authentication -> Providers -> Google: enable Google dan masukkan Client ID + Client Secret dari Google Cloud.
-4. Google Cloud OAuth Web Client:
-   - Authorized JavaScript origins: `https://bantupelajar.vercel.app`
-   - Authorized redirect URI: `https://deylaklrprkfgrljcvzl.supabase.co/auth/v1/callback`
-5. Supabase -> Authentication -> URL Configuration:
-   - Site URL: `https://bantupelajar.vercel.app`
-   - Redirect URL: `https://bantupelajar.vercel.app/auth/callback`
-6. Supabase Edge Functions -> Secrets: add `GROQ_API_KEY` with your Groq secret. Never commit the Groq key.
-7. Deploy `supabase/functions/groq-chat`.
+Set di Vercel:
 
-## Routes
+- `GROQ_API_KEY` — secret API key dari Groq
+- Supabase variables jika diperlukan oleh environment aplikasi kamu
 
-- `/` landing page
-- `/login` Google login page
-- `/auth/callback` OAuth callback
-- `/dashboard` dashboard
-- `/tutor` AI Tutor
+Jangan commit API key ke GitHub dan jangan gunakan prefix `NEXT_PUBLIC_` untuk `GROQ_API_KEY`.
 
-The Supabase Publishable Key is intentionally in `lib/config.ts`; it is designed for browser use. Do not replace it with a service-role key.
+## AI
+
+Request frontend:
+
+`POST /api/ai`
+
+Body:
+
+```json
+{"message":"Jelaskan hukum Newton 2"}
+```
+
+Response:
+
+```json
+{"answer":"..."}
+```

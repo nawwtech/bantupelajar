@@ -1,3 +1,0 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
-@tailwind base; @tailwind components; @tailwind utilities;
-:root{color-scheme:dark}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#08090d;color:#f5f7fb;font-family:"DM Sans",sans-serif}h1,h2,h3,h4{font-family:"Plus Jakarta Sans",sans-serif}::selection{background:rgba(139,92,246,.35);color:#fff}.glass{background:rgba(17,19,27,.72);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(18px)}.grid-bg{background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:42px 42px}
